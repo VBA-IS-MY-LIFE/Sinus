@@ -1,0 +1,49 @@
+Option Explicit
+
+Public Sub sinus()
+Dim spalte As Integer, farbe As Integer, zustand As Integer
+Dim maximalwert As Long, a As Integer, i As Long, counter As Integer
+
+
+Cells.Select
+Selection.ColumnWidth = 0.5
+Selection.RowHeight = 2
+Cells(1, 1).Select
+
+spalte = 1
+zustand = 0
+maximalwert = 0
+
+For a = 0 To 90
+    For counter = 0 To 40
+    farbe = Round(berechnung(maximalwert))
+        zustand = farbe
+        With Cells(Abs(farbe) + 1, spalte).Interior
+            .Pattern = xlSolid
+            .PatternColorIndex = xlAutomatic
+            .ThemeColor = xlThemeColorLight1
+            .TintAndShade = 0
+        .PatternTintAndShade = 0
+        End With
+        spalte = spalte + 1
+        maximalwert = maximalwert + 30
+    Next
+    Cells.Select
+    With Selection.Interior
+        .Pattern = xlNone
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+        End With
+        spalte = 1
+Next
+Cells.Select
+Selection.ColumnWidth = 12
+Selection.RowHeight = 12
+Cells(1, 1).Select
+
+End Sub
+
+
+Private Function berechnung(ByVal eingabe As Double) As Double
+berechnung = Sin(eingabe) * 10
+End Function

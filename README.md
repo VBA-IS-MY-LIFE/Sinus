@@ -1,4 +1,4 @@
-# SInus
+# Sinus
 This Macro Displays a moving Sine Curve. It's just a fun Project
 
 I decided to make an YouTube-Link for demonstration. Here's the Link:
